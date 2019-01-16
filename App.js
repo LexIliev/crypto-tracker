@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { Header } from './src/components';
+import { Header } from './src/components/';
 
 class App extends Component {
   render() {
@@ -15,7 +15,7 @@ class App extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'red',
+    backgroundColor: 'green',
     alignItems: 'center',
     justifyContent: 'center'
   }
