@@ -11,7 +11,7 @@ export default function FetchCoinData() {
     dispatch({ type: FETCHING_COIN_DATA });
 
     return axios
-      .get(`${apiBaseUrl}/v1/cryptocurrency/listings/latest/?limit=10`)
+      .get(`${apiBaseURL}/v1/cryptocurrency/listings/latest/?limit=10`)
       .then(res => {
         dispatch({ type: FETCHING_COIN_DATA_SUCCESS, payload: res.data });
       })
