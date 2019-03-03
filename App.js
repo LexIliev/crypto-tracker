@@ -6,7 +6,7 @@ import store from './src/store';
 
 import styles from './styles';
 
-class App extends Component {
+export default class App extends Component {
   render() {
     return (
       <Provider store={store}>
@@ -18,5 +18,3 @@ class App extends Component {
     );
   }
 }
-
-export default App;

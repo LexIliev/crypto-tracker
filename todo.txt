@@ -1,3 +1,0 @@
-npm i --save-dev remote-redux-devtools remotedev-rn-debugger remote-redux-devtools redux-logger
-
-^^^ if needed when debugging redux
