@@ -4,9 +4,10 @@ export default StyleSheet.create({
   container: {
     display: 'flex',
     marginBottom: 20,
-    borderBottomColor: '#E5E5E5',
-    borderBottomWidth: 3,
-    padding: 20,
+    borderBottomColor: '#009CB4',
+    borderBottomWidth: 2,
+    paddingVertical: 20,
+    marginHorizontal: 20,
   },
   upperRow: {
     display: 'flex',

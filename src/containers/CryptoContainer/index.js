@@ -9,6 +9,11 @@ import CoinCard from '../../components/CoinCard';
 class CryptoContainer extends Component {
   static navigationOptions = {
     title: 'Cryptocurrency Tracker App',
+    headerStyle: {
+      backgroundColor: '#1B242F',
+      borderBottomColor: '#009CB4',
+      borderBottomWidth: 3,
+    },
     headerTitleStyle: {
       alignSelf: 'center',
       textAlign: 'center',
@@ -16,6 +21,7 @@ class CryptoContainer extends Component {
       flex: 1,
       fontWeight: 'bold',
       textAlignVertical: 'center',
+      color: '#fff',
     },
   };
 

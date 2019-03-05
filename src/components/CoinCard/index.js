@@ -5,6 +5,8 @@ import { images } from '../../utils/CoinIcons';
 import styles from './styles';
 
 import { formatAmount } from '../../utils';
+const DEFAULT_IMAGE =
+  'https://img.icons8.com/material-sharp/24/000000/link.png';
 
 const CoinCard = (props) => {
   const {
@@ -41,7 +43,12 @@ const CoinCard = (props) => {
       }
     >
       <View style={upperRow}>
-        <Image style={image} source={{ uri: images[coinSymbol] }} />
+        <Image
+          style={image}
+          source={{
+            uri: images[coinSymbol] || DEFAULT_IMAGE,
+          }}
+        />
         <Text style={symbol}>{coinSymbol}</Text>
         <Text style={separator}>|</Text>
         <Text style={name}>{coinName}</Text>

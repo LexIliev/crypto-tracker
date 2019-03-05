@@ -9,6 +9,15 @@ import { CoinDetails } from '../../components';
 class CoinDetailsContainer extends Component {
   static navigationOptions = {
     title: 'Coin Details',
+    headerStyle: {
+      backgroundColor: '#1B242F',
+      borderBottomColor: '#009CB4',
+      borderBottomWidth: 3,
+    },
+    headerTintColor: '#fff',
+    headerTitleStyle: {
+      color: '#fff',
+    },
   };
 
   componentDidMount() {
