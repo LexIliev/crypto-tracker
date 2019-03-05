@@ -1,9 +1,17 @@
-import { takeEvery, call, put } from 'redux-saga/effects';
+import { takeLatest, call, put } from 'redux-saga/effects';
 
-import { FETCH_CRYPTO_DATA } from './../utils/ActionTypes';
+import {
+  FETCH_CRYPTO_DATA,
+  FETCH_CRYPTO_DETAILS,
+} from './../utils/ActionTypes';
 
-import { fetchCryptoData } from '../services/api';
-import { fetchCryptoDataSuccess, fetchCryptoDataFail } from '../actions';
+import { fetchCryptoData, fetchCryptoDetails } from '../services/api';
+import {
+  fetchCryptoDataSuccess,
+  fetchCryptoDataFail,
+  fetchCryptoDetailsSuccess,
+  fetchCryptoDetailsFail,
+} from '../actions';
 
 const getCryptoData = function*(action) {
   try {
@@ -17,8 +25,22 @@ const getCryptoData = function*(action) {
   }
 };
 
+const getCryptoDetails = function*(action) {
+  try {
+    // api call
+    const response = yield call(fetchCryptoDetails, action.id);
+    console.log(action.type);
+    const result = yield response.json();
+
+    yield put(fetchCryptoDetailsSuccess(result));
+  } catch (error) {
+    yield put(fetchCryptoDetailsFail(error));
+  }
+};
+
 const rootSaga = function*() {
-  yield takeEvery(FETCH_CRYPTO_DATA, getCryptoData);
+  yield takeLatest(FETCH_CRYPTO_DATA, getCryptoData);
+  yield takeLatest(FETCH_CRYPTO_DETAILS, getCryptoDetails);
 };
 
 export default rootSaga;

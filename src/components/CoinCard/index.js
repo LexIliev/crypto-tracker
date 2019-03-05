@@ -1,8 +1,10 @@
 import React from 'react';
-import { View, Text, Image } from 'react-native';
+import { View, Text, Image, TouchableOpacity } from 'react-native';
 import { images } from '../../utils/CoinIcons';
 
 import styles from './styles';
+
+import { formatAmount } from '../../utils';
 
 const CoinCard = (props) => {
   const {
@@ -20,28 +22,37 @@ const CoinCard = (props) => {
   } = styles;
 
   const {
+    id,
     coinSymbol,
     coinName,
     priceUSD,
     percentChange24h,
     percentChange7d,
+    navigation,
   } = props;
 
   return (
-    <View style={container}>
+    <TouchableOpacity
+      style={container}
+      onPress={() =>
+        navigation.navigate('Details', {
+          id,
+        })
+      }
+    >
       <View style={upperRow}>
         <Image style={image} source={{ uri: images[coinSymbol] }} />
         <Text style={symbol}>{coinSymbol}</Text>
         <Text style={separator}>|</Text>
         <Text style={name}>{coinName}</Text>
         <Text style={price}>
-          {priceUSD}
-          <Text style={currencySymbol}>$</Text>
+          {formatAmount(priceUSD, 3)}
+          <Text style={currencySymbol}>&nbsp;$</Text>
         </Text>
       </View>
       <View style={statistics}>
         <Text>
-          24h:
+          24h:&nbsp;
           <Text
             style={
               percentChange24h < 0
@@ -53,7 +64,7 @@ const CoinCard = (props) => {
           </Text>
         </Text>
         <Text>
-          7d:
+          7d:&nbsp;
           <Text
             style={
               percentChange7d < 0
@@ -65,7 +76,7 @@ const CoinCard = (props) => {
           </Text>
         </Text>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 

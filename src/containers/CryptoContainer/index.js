@@ -3,20 +3,32 @@ import { connect } from 'react-redux';
 import { View, ScrollView } from 'react-native';
 import Spinner from 'react-native-loading-spinner-overlay';
 
-import { fetchCryptoData } from '../actions';
-import CoinCard from '../components/CoinCard/CoinCard';
+import { fetchCryptoData } from '../../actions';
+import CoinCard from '../../components/CoinCard';
 
 class CryptoContainer extends Component {
+  static navigationOptions = {
+    title: 'Cryptocurrency Tracker App',
+    headerTitleStyle: {
+      alignSelf: 'center',
+      textAlign: 'center',
+      justifyContent: 'center',
+      flex: 1,
+      fontWeight: 'bold',
+      textAlignVertical: 'center',
+    },
+  };
+
   componentDidMount() {
     this.props.fetchCryptoData();
   }
 
   renderCoinCards() {
-    const { crypto } = this.props;
+    const { cryptoList, navigation } = this.props;
 
     return (
-      crypto.data &&
-      crypto.data.map((coin) => {
+      cryptoList.data &&
+      cryptoList.data.map((coin) => {
         const {
           id,
           name,
@@ -29,11 +41,13 @@ class CryptoContainer extends Component {
         return (
           <CoinCard
             key={id}
+            id={id}
             coinName={name}
             coinSymbol={symbol}
             priceUSD={price_usd}
             percentChange24h={percent_change_24h}
             percentChange7d={percent_change_7d}
+            navigation={navigation}
           />
         );
       })
@@ -41,14 +55,14 @@ class CryptoContainer extends Component {
   }
 
   render() {
-    const { crypto } = this.props;
+    const { cryptoList } = this.props;
     const { contentContainer } = styles;
 
-    if (crypto.isFetching) {
+    if (cryptoList.isFetching) {
       return (
         <View>
           <Spinner
-            visible={crypto.isFetching}
+            visible={cryptoList.isFetching}
             textContent={'Loading...'}
             textStyle={{ color: '#253145' }}
             animation="fade"
@@ -68,12 +82,12 @@ class CryptoContainer extends Component {
 const styles = {
   contentContainer: {
     paddingBottom: 100,
-    paddingTop: 55,
+    paddingTop: 5,
   },
 };
 
 mapStateToProps = (state) => ({
-  crypto: state.crypto,
+  cryptoList: state.cryptoList,
 });
 
 export default connect(

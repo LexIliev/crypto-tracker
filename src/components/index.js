@@ -1,4 +1,5 @@
-import Header from './Header/Header';
-import CryptoContainer from '../containers/CryptoContainer';
+import Header from './Header';
+import CoinDetails from './CoinDetails';
+import CoinCard from './CoinCard';
 
-export { Header, CryptoContainer };
+export { Header, CoinDetails, CoinCard };
