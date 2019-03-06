@@ -33,8 +33,8 @@ class CryptoContainer extends Component {
     const { cryptoList, navigation } = this.props;
 
     return (
-      cryptoList.data &&
-      cryptoList.data.map((coin) => {
+      cryptoList.data
+      && cryptoList.data.map((coin) => {
         const {
           id,
           name,
@@ -69,7 +69,7 @@ class CryptoContainer extends Component {
         <View>
           <Spinner
             visible={cryptoList.isFetching}
-            textContent={'Loading...'}
+            textContent="Loading..."
             textStyle={{ color: '#253145' }}
             animation="fade"
           />
@@ -92,7 +92,7 @@ const styles = {
   },
 };
 
-mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   cryptoList: state.cryptoList,
 });
 

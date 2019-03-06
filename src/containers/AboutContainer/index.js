@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
+/* eslint-disable object-curly-newline */
 import { Linking, Text, Image, View } from 'react-native';
+/* eslint-enable object-curly-newline */
 
 import styles from './styles';
+
+const logoImage = require('../../assets/images/logo.png');
 
 class AboutContainer extends Component {
   // Header Styling
@@ -24,14 +28,20 @@ class AboutContainer extends Component {
   };
 
   render() {
-    const { container, logo, title, subTitle, link } = styles;
+    const {
+      container,
+      logo,
+      title,
+      subTitle,
+      link
+    } = styles;
 
     return (
       <View style={container}>
         <Image
           resizeMode="contain"
           style={logo}
-          source={require('../../assets/images/logo.png')}
+          source={logoImage}
         />
         <Text style={title}>Simple Crypto Tracker App</Text>
         <Text style={subTitle}>
@@ -39,11 +49,13 @@ class AboutContainer extends Component {
         </Text>
         <Text
           style={link}
-          onPress={() =>
-            Linking.openURL('https://github.com/lexiliev')
+          /* eslint-disable no-console */
+          onPress={
+            () => Linking.openURL('https://github.com/lexiliev')
               .then(() => console.log('Calling the URL'))
-              .catch((err) => console.log('Error: ', err))
+              .catch(err => console.log('Error: ', err))
           }
+          /* eslint-enable no-console */
         >
           Click me!
         </Text>

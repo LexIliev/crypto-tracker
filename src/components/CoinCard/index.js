@@ -1,14 +1,16 @@
 import React from 'react';
+/* eslint-disable object-curly-newline */
 import { View, Text, Image, TouchableOpacity } from 'react-native';
-import { images } from '../../utils/CoinIcons';
+/* eslint-enable object-curly-newline */
+
+import images from '../../utils/CoinIcons';
 
 import styles from './styles';
 
 import { formatAmount } from '../../utils';
 
 // Default Cryptocurrency Image
-const DEFAULT_IMAGE =
-  'https://img.icons8.com/material-sharp/24/000000/link.png';
+const DEFAULT_IMAGE = 'https://img.icons8.com/material-sharp/24/000000/link.png';
 
 const CoinCard = (props) => {
   const {
@@ -38,11 +40,7 @@ const CoinCard = (props) => {
   return (
     <TouchableOpacity
       style={container}
-      onPress={() =>
-        navigation.navigate('Details', {
-          id,
-        })
-      }
+      onPress={() => navigation.navigate('Details', { id })}
     >
       <View style={upperRow}>
         <Image

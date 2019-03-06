@@ -1,4 +1,4 @@
-export const images = {
+const images = {
   BTC:
     'https://res.cloudinary.com/da7jhtpgh/image/upload/v1508609483/bitcoin_eqld4v.png',
   ETH:
@@ -34,5 +34,7 @@ export const images = {
   TRX:
     'https://res.cloudinary.com/da7jhtpgh/image/upload/v1516326885/trx_2x_ukhxjm.png',
   EOS:
-    'https://res.cloudinary.com/da7jhtpgh/image/upload/v1516326878/eos_2x_dvr7p0.png'
+    'https://res.cloudinary.com/da7jhtpgh/image/upload/v1516326878/eos_2x_dvr7p0.png',
 };
+
+export default images;

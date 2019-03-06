@@ -37,9 +37,9 @@ const TabNavigator = createBottomTabNavigator(
         let iconName;
 
         if (routeName === 'Home') {
-          iconName = `ios-home`;
+          iconName = 'ios-home';
         } else if (routeName === 'About') {
-          iconName = `ios-options`;
+          iconName = 'ios-options';
         }
 
         return <Ionicons name={iconName} size={25} color={tintColor} />;

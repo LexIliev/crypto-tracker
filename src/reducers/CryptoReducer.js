@@ -2,7 +2,7 @@ import {
   FETCH_CRYPTO_DATA,
   FETCH_CRYPTO_DATA_SUCCESS,
   FETCH_CRYPTO_DATA_FAIL,
-} from './../utils/ActionTypes';
+} from '../utils/ActionTypes';
 
 const initialState = {
   isFetching: null,
@@ -11,7 +11,7 @@ const initialState = {
   errorMessage: null,
 };
 
-export default function(state = initialState, action) {
+export default function (state = initialState, action) {
   switch (action.type) {
     case FETCH_CRYPTO_DATA:
       return {

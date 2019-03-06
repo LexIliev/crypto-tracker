@@ -14,28 +14,28 @@ export const fetchCryptoData = () => ({
   type: FETCH_CRYPTO_DATA,
 });
 
-export const fetchCryptoDataSuccess = (data) => ({
+export const fetchCryptoDataSuccess = data => ({
   type: FETCH_CRYPTO_DATA_SUCCESS,
   data,
 });
 
-export const fetchCryptoDataFail = (error) => ({
+export const fetchCryptoDataFail = error => ({
   type: FETCH_CRYPTO_DATA_FAIL,
   error,
 });
 
 // Cryptocurrency Details
-export const fetchCryptoDetails = (id) => ({
+export const fetchCryptoDetails = id => ({
   type: FETCH_CRYPTO_DETAILS,
   id,
 });
 
-export const fetchCryptoDetailsSuccess = (data) => ({
+export const fetchCryptoDetailsSuccess = data => ({
   type: FETCH_CRYPTO_DETAILS_SUCCESS,
   data,
 });
 
-export const fetchCryptoDetailsFail = (error) => ({
+export const fetchCryptoDetailsFail = error => ({
   type: FETCH_CRYPTO_DETAILS_FAIL,
   error,
 });

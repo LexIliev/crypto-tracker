@@ -52,7 +52,7 @@ class CoinDetailsContainer extends Component {
         <View>
           <Spinner
             visible={cryptoDetails.isFetching}
-            textContent={'Loading...'}
+            textContent="Loading..."
             textStyle={{ color: '#253145' }}
             animation="fade"
           />
@@ -87,7 +87,7 @@ const styles = {
   },
 };
 
-mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   cryptoDetails: state.cryptoDetails,
 });
 

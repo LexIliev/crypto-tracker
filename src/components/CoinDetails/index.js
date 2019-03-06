@@ -1,12 +1,12 @@
 import React from 'react';
 import { View, Text, Image } from 'react-native';
-import { images } from '../../utils/CoinIcons';
+import images from '../../utils/CoinIcons';
 
 import styles from './styles';
 
 import { formatDate, formatAmount } from '../../utils';
 
-export default (CoinDetails = (props) => {
+const CoinDetails = (props) => {
   const {
     container,
     heading,
@@ -41,13 +41,15 @@ export default (CoinDetails = (props) => {
     lastUpdated,
   } = props;
 
-  const supplies = [availableSupply, maxSupply, marketCapUSD].map((supply) =>
-    formatAmount(supply, 0),
+  const supplies = [availableSupply, maxSupply, marketCapUSD].map(
+    supply => formatAmount(supply, 0)
   );
 
   return (
     <View style={container}>
-      <Text style={heading}>Details: {coinName}</Text>
+      <Text style={heading}>
+        Details: {coinName}
+      </Text>
       <View style={upperRow}>
         <Image style={image} source={{ uri: images[coinSymbol] }} />
         <Text style={symbol}>{coinSymbol}</Text>
@@ -117,15 +119,21 @@ export default (CoinDetails = (props) => {
       <View>
         <Text>
           Market cap USD:&nbsp;
-          <Text style={update}>{supplies[2]}&nbsp;$</Text>
+          <Text style={update}>
+            {supplies[2]}&nbsp;$
+          </Text>
         </Text>
       </View>
       <View>
         <Text>
           Last updated:&nbsp;
-          <Text style={update}>{formatDate(lastUpdated)}</Text>
+          <Text style={update}>
+            {formatDate(lastUpdated)}
+          </Text>
         </Text>
       </View>
     </View>
   );
-});
+};
+
+export default CoinDetails;
