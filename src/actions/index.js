@@ -1,3 +1,4 @@
+// Action Types
 import {
   FETCH_CRYPTO_DATA,
   FETCH_CRYPTO_DATA_SUCCESS,
@@ -7,6 +8,8 @@ import {
   FETCH_CRYPTO_DETAILS_FAIL,
 } from '../utils/ActionTypes';
 
+// Action Creators
+// Cryptocurrencies Home
 export const fetchCryptoData = () => ({
   type: FETCH_CRYPTO_DATA,
 });
@@ -21,6 +24,7 @@ export const fetchCryptoDataFail = (error) => ({
   error,
 });
 
+// Cryptocurrency Details
 export const fetchCryptoDetails = (id) => ({
   type: FETCH_CRYPTO_DETAILS,
   id,

@@ -5,6 +5,8 @@ import { images } from '../../utils/CoinIcons';
 import styles from './styles';
 
 import { formatAmount } from '../../utils';
+
+// Default Cryptocurrency Image
 const DEFAULT_IMAGE =
   'https://img.icons8.com/material-sharp/24/000000/link.png';
 
@@ -19,8 +21,8 @@ const CoinCard = (props) => {
     price,
     statistics,
     separator,
-    negativePercentageChange,
     positivePercentageChange,
+    negativePercentageChange,
   } = styles;
 
   const {

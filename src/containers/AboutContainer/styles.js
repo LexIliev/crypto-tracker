@@ -9,18 +9,24 @@ export default StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+
   logo: {
     width: width - 60,
     maxHeight: 150,
   },
+
   title: {
+    color: '#1B242F',
     fontSize: 30,
   },
+
   subTitle: {
+    color: '#5e6965',
     fontSize: 18,
   },
+
   link: {
-    color: '#fe0000',
+    color: '#009CB4',
     fontSize: 16,
     marginTop: 10,
   },

@@ -18,8 +18,8 @@ export default (CoinDetails = (props) => {
     price,
     statistics,
     separator,
-    negativePercentageChange,
     positivePercentageChange,
+    negativePercentageChange,
     update,
     prizesRow,
     suppliesRow,
@@ -31,7 +31,7 @@ export default (CoinDetails = (props) => {
     coinSymbol,
     coinName,
     priceUSD,
-    priceCoin,
+    priceBTC,
     percentChange1h,
     percentChange24h,
     percentChange7d,
@@ -40,6 +40,10 @@ export default (CoinDetails = (props) => {
     marketCapUSD,
     lastUpdated,
   } = props;
+
+  const supplies = [availableSupply, maxSupply, marketCapUSD].map((supply) =>
+    formatAmount(supply, 0),
+  );
 
   return (
     <View style={container}>
@@ -56,8 +60,8 @@ export default (CoinDetails = (props) => {
           <Text style={currencySymbol}>&nbsp;$</Text>
         </Text>
         <Text style={price}>
-          {priceCoin}
-          <Text style={currencySymbol}>&nbsp;{coinSymbol}</Text>
+          {priceBTC}
+          <Text style={currencySymbol}>&nbsp;BTC</Text>
         </Text>
       </View>
       <View style={statistics}>
@@ -101,21 +105,19 @@ export default (CoinDetails = (props) => {
       <View style={suppliesRow}>
         <Text>
           Available supply:&nbsp;
-          <Text style={availableSupplies}>
-            {formatAmount(availableSupply, 0)}
-          </Text>
+          <Text style={availableSupplies}>{supplies[0]}</Text>
         </Text>
         <Text>
           Max supply:&nbsp;
           <Text style={maxSupplies}>
-            {maxSupply !== null ? formatAmount(maxSupply, 0) : '-'}
+            {maxSupply !== null ? supplies[1] : '-'}
           </Text>
         </Text>
       </View>
       <View>
         <Text>
           Market cap USD:&nbsp;
-          <Text style={update}>{formatAmount(marketCapUSD, 0)}</Text>
+          <Text style={update}>{supplies[2]}&nbsp;$</Text>
         </Text>
       </View>
       <View>

@@ -4,6 +4,7 @@ import { Linking, Text, Image, View } from 'react-native';
 import styles from './styles';
 
 class AboutContainer extends Component {
+  // Header Styling
   static navigationOptions = {
     title: 'About',
     headerStyle: {
@@ -24,6 +25,7 @@ class AboutContainer extends Component {
 
   render() {
     const { container, logo, title, subTitle, link } = styles;
+
     return (
       <View style={container}>
         <Image
@@ -31,7 +33,7 @@ class AboutContainer extends Component {
           style={logo}
           source={require('../../assets/images/logo.png')}
         />
-        <Text style={title}>Hi! I'm Alex!</Text>
+        <Text style={title}>Simple Crypto Tracker App</Text>
         <Text style={subTitle}>
           Check the repo of the app on the link below.
         </Text>
@@ -39,8 +41,8 @@ class AboutContainer extends Component {
           style={link}
           onPress={() =>
             Linking.openURL('https://github.com/lexiliev')
-              .then(() => console.log('calling'))
-              .catch((err) => console.log('error: ', err))
+              .then(() => console.log('Calling the URL'))
+              .catch((err) => console.log('Error: ', err))
           }
         >
           Click me!

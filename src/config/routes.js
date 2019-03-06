@@ -6,6 +6,7 @@ import {
   createBottomTabNavigator,
   createAppContainer,
 } from 'react-navigation';
+
 import {
   CryptoContainer,
   CoinDetailsContainer,

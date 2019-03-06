@@ -8,6 +8,7 @@ export default StyleSheet.create({
     borderBottomWidth: 3,
     padding: 20,
   },
+
   heading: {
     fontWeight: 'bold',
     fontSize: 20,
@@ -15,6 +16,16 @@ export default StyleSheet.create({
     borderBottomColor: '#E5E5E5',
     borderBottomWidth: 1,
   },
+
+  image: {
+    width: 35,
+    height: 35,
+  },
+
+  currencySymbol: {
+    fontWeight: 'bold',
+  },
+
   upperRow: {
     display: 'flex',
     flexDirection: 'row',
@@ -22,48 +33,49 @@ export default StyleSheet.create({
     marginTop: 15,
     justifyContent: 'center',
   },
+
   symbol: {
     marginTop: 10,
     marginLeft: 20,
     marginRight: 5,
     fontWeight: 'bold',
   },
+
   name: {
     marginTop: 10,
     marginLeft: 5,
     marginRight: 20,
   },
-  separator: {
-    marginTop: 10,
-  },
+
   price: {
     marginTop: 10,
     marginRight: 10,
     fontWeight: 'bold',
   },
-  image: {
-    width: 35,
-    height: 35,
-  },
-  currencySymbol: {
-    fontWeight: 'bold',
-  },
+
   statistics: {
     display: 'flex',
     padding: 10,
     flexDirection: 'row',
     justifyContent: 'space-around',
   },
+
+  separator: {
+    marginTop: 10,
+  },
+
   positivePercentageChange: {
     color: '#00BFA5',
     fontWeight: 'bold',
     marginLeft: 5,
   },
+
   negativePercentageChange: {
     color: '#DD2C00',
     fontWeight: 'bold',
     marginLeft: 5,
   },
+
   update: {
     display: 'flex',
     padding: 10,
@@ -71,22 +83,26 @@ export default StyleSheet.create({
     justifyContent: 'space-around',
     fontWeight: 'bold',
   },
+
   prizesRow: {
     display: 'flex',
     flexDirection: 'row',
     marginBottom: 15,
     justifyContent: 'space-around',
   },
+
   suppliesRow: {
     display: 'flex',
     flexDirection: 'row',
     marginBottom: 15,
     justifyContent: 'space-around',
   },
+
   availableSupplies: {
     color: '#00BFA5',
     fontWeight: 'bold',
   },
+
   maxSupplies: {
     color: '#DD2C00',
     fontWeight: 'bold',

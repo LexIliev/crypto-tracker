@@ -6,6 +6,7 @@ import {
 } from './../utils/ActionTypes';
 
 import { fetchCryptoData, fetchCryptoDetails } from '../services/api';
+
 import {
   fetchCryptoDataSuccess,
   fetchCryptoDataFail,

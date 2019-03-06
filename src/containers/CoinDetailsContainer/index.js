@@ -7,6 +7,7 @@ import { fetchCryptoDetails } from '../../actions';
 import { CoinDetails } from '../../components';
 
 class CoinDetailsContainer extends Component {
+  // Header Styling
   static navigationOptions = {
     title: 'Coin Details',
     headerStyle: {
@@ -29,6 +30,7 @@ class CoinDetailsContainer extends Component {
 
   render() {
     const { cryptoDetails } = this.props;
+
     const {
       name,
       symbol,
@@ -42,6 +44,7 @@ class CoinDetailsContainer extends Component {
       market_cap_usd,
       last_updated,
     } = cryptoDetails.data;
+
     const { contentContainer } = styles;
 
     if (cryptoDetails.isFetching) {
@@ -63,7 +66,7 @@ class CoinDetailsContainer extends Component {
           coinName={name}
           coinSymbol={symbol}
           priceUSD={price_usd}
-          priceCoin={price_btc}
+          priceBTC={price_btc}
           percentChange1h={percent_change_1h}
           percentChange24h={percent_change_24h}
           percentChange7d={percent_change_7d}
