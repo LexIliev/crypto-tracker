@@ -4,11 +4,11 @@ Simple React-Native app with Redux, Redux Saga and Expo.
 
 ## Screenshots
 
-![SplashScreen](/screenshots/splash-screen.jpg?raw=true "Splash Screen")
-![HomeScreen](/screenshots/home-screen.jpg?raw=true "Home Screen")
-![DetailsScreen](/screenshots/details-screen.jpg?raw=true "Details Screen")
-![AboutScreen](/screenshots/about-screen.jpg?raw=true "About Screen")
-![Minimized](/screenshots/minimized.jpg?raw=true "Minimized")
+![SplashScreen](https://raw.githubusercontent.com/LexIliev/crypto-tracker/master/screenshots/splash-screen.jpeg 'Splash Screen')
+![HomeScreen](https://raw.githubusercontent.com/LexIliev/crypto-tracker/master/screenshots/home-screen.jpeg 'Home Screen')
+![DetailsScreen](https://raw.githubusercontent.com/LexIliev/crypto-tracker/master/screenshots/details-screen.jpeg 'Details Screen')
+![AboutScreen](https://raw.githubusercontent.com/LexIliev/crypto-tracker/master/screenshots/about-screen.jpeg 'About Screen')
+![Minimized](https://raw.githubusercontent.com/LexIliev/crypto-tracker/master/screenshots/minimized.jpeg 'Minimized')
 
 # Getting Started
 
