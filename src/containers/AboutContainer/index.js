@@ -51,7 +51,7 @@ class AboutContainer extends Component {
           style={link}
           /* eslint-disable no-console */
           onPress={
-            () => Linking.openURL('https://github.com/lexiliev')
+            () => Linking.openURL('https://github.com/LexIliev/crypto-tracker')
               .then(() => console.log('Calling the URL'))
               .catch(err => console.log('Error: ', err))
           }
