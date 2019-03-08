@@ -11,11 +11,10 @@ import {
   fetchCryptoDetailsFail,
 } from '../actions';
 
-const getCryptoData = function* () {
+const getCryptoData = function*() {
   try {
     // api call
-    const response = yield call(fetchCryptoData);
-    const result = yield response.json();
+    const result = yield call(fetchCryptoData);
 
     yield put(fetchCryptoDataSuccess(result));
   } catch (error) {
@@ -23,11 +22,10 @@ const getCryptoData = function* () {
   }
 };
 
-const getCryptoDetails = function* (action) {
+const getCryptoDetails = function*(action) {
   try {
     // api call
-    const response = yield call(fetchCryptoDetails, action.id);
-    const result = yield response.json();
+    const result = yield call(fetchCryptoDetails, action.id);
 
     yield put(fetchCryptoDetailsSuccess(result));
   } catch (error) {
@@ -35,7 +33,7 @@ const getCryptoDetails = function* (action) {
   }
 };
 
-const rootSaga = function* () {
+const rootSaga = function*() {
   yield takeLatest(FETCH_CRYPTO_DATA, getCryptoData);
   yield takeLatest(FETCH_CRYPTO_DETAILS, getCryptoDetails);
 };
