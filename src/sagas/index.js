@@ -1,41 +1,44 @@
 import { takeLatest, call, put } from 'redux-saga/effects';
 
-import { FETCH_CRYPTO_DATA, FETCH_CRYPTO_DETAILS } from '../utils/ActionTypes';
+import {
+  FETCH_COINS_LIST_DATA,
+  FETCH_COIN_DETAILS,
+} from '../actions/ActionTypes';
 
-import { fetchCryptoData, fetchCryptoDetails } from '../services/api';
+import { fetchCoinsListData, fetchCoinDetails } from '../services/api';
 
 import {
-  fetchCryptoDataSuccess,
-  fetchCryptoDataFail,
-  fetchCryptoDetailsSuccess,
-  fetchCryptoDetailsFail,
+  fetchCoinsListDataSuccess,
+  fetchCoinsListDataFail,
+  fetchCoinDetailsSuccess,
+  fetchCoinDetailsFail,
 } from '../actions';
 
-const getCryptoData = function*() {
+const getCoinsListData = function*() {
   try {
     // api call
-    const result = yield call(fetchCryptoData);
+    const result = yield call(fetchCoinsListData);
 
-    yield put(fetchCryptoDataSuccess(result));
+    yield put(fetchCoinsListDataSuccess(result));
   } catch (error) {
-    yield put(fetchCryptoDataFail(error));
+    yield put(fetchCoinsListDataFail(error));
   }
 };
 
-const getCryptoDetails = function*(action) {
+const getCoinDetails = function*(action) {
   try {
     // api call
-    const result = yield call(fetchCryptoDetails, action.id);
+    const result = yield call(fetchCoinDetails, action.id);
 
-    yield put(fetchCryptoDetailsSuccess(result));
+    yield put(fetchCoinDetailsSuccess(result));
   } catch (error) {
-    yield put(fetchCryptoDetailsFail(error));
+    yield put(fetchCoinDetailsFail(error));
   }
 };
 
 const rootSaga = function*() {
-  yield takeLatest(FETCH_CRYPTO_DATA, getCryptoData);
-  yield takeLatest(FETCH_CRYPTO_DETAILS, getCryptoDetails);
+  yield takeLatest(FETCH_COINS_LIST_DATA, getCoinsListData);
+  yield takeLatest(FETCH_COIN_DETAILS, getCoinDetails);
 };
 
 export default rootSaga;

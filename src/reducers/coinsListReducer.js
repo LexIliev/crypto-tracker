@@ -1,39 +1,39 @@
 import {
-  FETCH_CRYPTO_DETAILS,
-  FETCH_CRYPTO_DETAILS_SUCCESS,
-  FETCH_CRYPTO_DETAILS_FAIL,
-} from '../utils/ActionTypes';
+  FETCH_COINS_LIST_DATA,
+  FETCH_COINS_LIST_DATA_SUCCESS,
+  FETCH_COINS_LIST_DATA_FAIL,
+} from '../actions/ActionTypes';
 
 const initialState = {
-  isFetching: false,
-  data: {},
+  isFetching: null,
+  data: [],
   hasError: false,
   errorMessage: null,
 };
 
-export default function (state = initialState, action) {
+export default function(state = initialState, action) {
   switch (action.type) {
-    case FETCH_CRYPTO_DETAILS:
+    case FETCH_COINS_LIST_DATA:
       return {
         ...state,
         isFetching: true,
-        data: {},
+        data: null,
         hasError: false,
         errorMessage: null,
       };
-    case FETCH_CRYPTO_DETAILS_SUCCESS:
+    case FETCH_COINS_LIST_DATA_SUCCESS:
       return {
         ...state,
         isFetching: false,
-        data: action.data[0],
+        data: action.data,
         hasError: false,
         errorMessage: null,
       };
-    case FETCH_CRYPTO_DETAILS_FAIL:
+    case FETCH_COINS_LIST_DATA_FAIL:
       return {
         ...state,
         isFetching: false,
-        data: {},
+        data: [],
         hasError: true,
         errorMessage: action.err,
       };

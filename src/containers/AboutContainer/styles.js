@@ -11,7 +11,7 @@ export default StyleSheet.create({
   },
 
   logo: {
-    width: width - 60,
+    width: width,
     maxHeight: 150,
   },
 

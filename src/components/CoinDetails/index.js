@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, Image } from 'react-native';
-import images from '../../utils/CoinIcons';
+import { coinIcons, DEFAULT_ICON } from '../../utils/CoinIcons';
 
 import styles from './styles';
 
@@ -10,7 +10,7 @@ const CoinDetails = (props) => {
   const {
     container,
     heading,
-    image,
+    icon,
     currencySymbol,
     upperRow,
     symbol,
@@ -41,17 +41,14 @@ const CoinDetails = (props) => {
     lastUpdated,
   } = props;
 
-  const supplies = [availableSupply, maxSupply, marketCapUSD].map(
-    supply => formatAmount(supply, 0)
-  );
-
   return (
     <View style={container}>
-      <Text style={heading}>
-        Details: {coinName}
-      </Text>
+      <Text style={heading}>Details: {coinName}</Text>
       <View style={upperRow}>
-        <Image style={image} source={{ uri: images[coinSymbol] }} />
+        <Image
+          style={icon}
+          source={{ uri: coinIcons[coinSymbol] || DEFAULT_ICON }}
+        />
         <Text style={symbol}>{coinSymbol}</Text>
         <Text style={separator}>|</Text>
         <Text style={name}>{coinName}</Text>
@@ -107,29 +104,27 @@ const CoinDetails = (props) => {
       <View style={suppliesRow}>
         <Text>
           Available supply:&nbsp;
-          <Text style={availableSupplies}>{supplies[0]}</Text>
+          <Text style={availableSupplies}>
+            {formatAmount(availableSupply, 0)}
+          </Text>
         </Text>
         <Text>
           Max supply:&nbsp;
           <Text style={maxSupplies}>
-            {maxSupply !== null ? supplies[1] : '-'}
+            {maxSupply !== null ? formatAmount(maxSupply, 0) : '-'}
           </Text>
         </Text>
       </View>
       <View>
         <Text>
           Market cap USD:&nbsp;
-          <Text style={update}>
-            {supplies[2]}&nbsp;$
-          </Text>
+          <Text style={update}>{formatAmount(marketCapUSD, 0)}&nbsp;$</Text>
         </Text>
       </View>
       <View>
         <Text>
           Last updated:&nbsp;
-          <Text style={update}>
-            {formatDate(lastUpdated)}
-          </Text>
+          <Text style={update}>{formatDate(lastUpdated)}</Text>
         </Text>
       </View>
     </View>

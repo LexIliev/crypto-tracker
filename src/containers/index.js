@@ -1,5 +1,5 @@
-import CryptoContainer from './CryptoContainer';
+import CoinsListContainer from './CoinsListContainer';
 import CoinDetailsContainer from './CoinDetailsContainer';
 import AboutContainer from './AboutContainer';
 
-export { CryptoContainer, CoinDetailsContainer, AboutContainer };
+export { CoinsListContainer, CoinDetailsContainer, AboutContainer };

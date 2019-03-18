@@ -1,41 +1,41 @@
 // Action Types
 import {
-  FETCH_CRYPTO_DATA,
-  FETCH_CRYPTO_DATA_SUCCESS,
-  FETCH_CRYPTO_DATA_FAIL,
-  FETCH_CRYPTO_DETAILS,
-  FETCH_CRYPTO_DETAILS_SUCCESS,
-  FETCH_CRYPTO_DETAILS_FAIL,
-} from '../utils/ActionTypes';
+  FETCH_COINS_LIST_DATA,
+  FETCH_COINS_LIST_DATA_SUCCESS,
+  FETCH_COINS_LIST_DATA_FAIL,
+  FETCH_COIN_DETAILS,
+  FETCH_COIN_DETAILS_SUCCESS,
+  FETCH_COIN_DETAILS_FAIL,
+} from './ActionTypes';
 
 // Action Creators
 // Cryptocurrencies Home
-export const fetchCryptoData = () => ({
-  type: FETCH_CRYPTO_DATA,
+export const fetchCoinsListData = () => ({
+  type: FETCH_COINS_LIST_DATA,
 });
 
-export const fetchCryptoDataSuccess = data => ({
-  type: FETCH_CRYPTO_DATA_SUCCESS,
+export const fetchCoinsListDataSuccess = (data) => ({
+  type: FETCH_COINS_LIST_DATA_SUCCESS,
   data,
 });
 
-export const fetchCryptoDataFail = error => ({
-  type: FETCH_CRYPTO_DATA_FAIL,
+export const fetchCoinsListDataFail = (error) => ({
+  type: FETCH_COINS_LIST_DATA_FAIL,
   error,
 });
 
 // Cryptocurrency Details
-export const fetchCryptoDetails = id => ({
-  type: FETCH_CRYPTO_DETAILS,
+export const fetchCoinDetails = (id) => ({
+  type: FETCH_COIN_DETAILS,
   id,
 });
 
-export const fetchCryptoDetailsSuccess = data => ({
-  type: FETCH_CRYPTO_DETAILS_SUCCESS,
+export const fetchCoinDetailsSuccess = (data) => ({
+  type: FETCH_COIN_DETAILS_SUCCESS,
   data,
 });
 
-export const fetchCryptoDetailsFail = error => ({
-  type: FETCH_CRYPTO_DETAILS_FAIL,
+export const fetchCoinDetailsFail = (error) => ({
+  type: FETCH_COIN_DETAILS_FAIL,
   error,
 });

@@ -10,7 +10,7 @@ export default StyleSheet.create({
     marginHorizontal: 20,
   },
 
-  image: {
+  icon: {
     width: 35,
     height: 35,
   },

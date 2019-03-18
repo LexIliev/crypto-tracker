@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { View, ScrollView } from 'react-native';
-import Spinner from 'react-native-loading-spinner-overlay';
+import Loader from '../../components/Loader';
 
-import { fetchCryptoData } from '../../actions';
-import CoinCard from '../../components/CoinCard';
+import { fetchCoinsListData } from '../../actions';
+import { CoinCard } from '../../components';
 
-class CryptoContainer extends Component {
+class CoinsListContainer extends Component {
   static navigationOptions = {
     title: 'Cryptocurrency Tracker App',
     headerStyle: {
@@ -26,15 +26,18 @@ class CryptoContainer extends Component {
   };
 
   componentDidMount() {
-    this.props.fetchCryptoData();
+    this.props.fetchCoinsListData();
   }
 
   renderCoinCards() {
-    const { cryptoList, navigation } = this.props;
+    const {
+      coinsList: { data },
+      navigation,
+    } = this.props;
 
     return (
-      cryptoList.data
-      && cryptoList.data.map((coin) => {
+      data &&
+      data.map((coin) => {
         const {
           id,
           name,
@@ -61,23 +64,14 @@ class CryptoContainer extends Component {
   }
 
   render() {
-    const { cryptoList } = this.props;
+    const {
+      coinsList: { isFetching },
+    } = this.props;
     const { contentContainer } = styles;
 
-    if (cryptoList.isFetching) {
-      return (
-        <View>
-          <Spinner
-            visible={cryptoList.isFetching}
-            textContent="Loading..."
-            textStyle={{ color: '#253145' }}
-            animation="fade"
-          />
-        </View>
-      );
-    }
-
-    return (
+    return isFetching ? (
+      <Loader isLoading={isFetching} />
+    ) : (
       <ScrollView contentContainerStyle={contentContainer}>
         {this.renderCoinCards()}
       </ScrollView>
@@ -92,11 +86,11 @@ const styles = {
   },
 };
 
-const mapStateToProps = state => ({
-  cryptoList: state.cryptoList,
+const mapStateToProps = (state) => ({
+  coinsList: state.coinsList,
 });
 
 export default connect(
   mapStateToProps,
-  { fetchCryptoData },
-)(CryptoContainer);
+  { fetchCoinsListData },
+)(CoinsListContainer);

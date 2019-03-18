@@ -8,14 +8,14 @@ import {
 } from 'react-navigation';
 
 import {
-  CryptoContainer,
+  CoinsListContainer,
   CoinDetailsContainer,
   AboutContainer,
 } from '../containers';
 
 // Home Screen Stack
 const HomeStack = createStackNavigator({
-  Home: { screen: CryptoContainer },
+  Home: { screen: CoinsListContainer },
   Details: { screen: CoinDetailsContainer },
 });
 

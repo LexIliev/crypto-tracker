@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { View, ScrollView } from 'react-native';
-import Spinner from 'react-native-loading-spinner-overlay';
+import Loader from '../../components/Loader';
 
-import { fetchCryptoDetails } from '../../actions';
+import { fetchCoinDetails } from '../../actions';
 import { CoinDetails } from '../../components';
 
 class CoinDetailsContainer extends Component {
@@ -25,11 +25,13 @@ class CoinDetailsContainer extends Component {
     const { navigation } = this.props;
     const id = navigation.getParam('id', 0);
 
-    this.props.fetchCryptoDetails(id);
+    this.props.fetchCoinDetails(id);
   }
 
   render() {
-    const { cryptoDetails } = this.props;
+    const {
+      coinDetails: { data, isFetching },
+    } = this.props;
 
     const {
       name,
@@ -43,24 +45,13 @@ class CoinDetailsContainer extends Component {
       max_supply,
       market_cap_usd,
       last_updated,
-    } = cryptoDetails.data;
+    } = data;
 
     const { contentContainer } = styles;
 
-    if (cryptoDetails.isFetching) {
-      return (
-        <View>
-          <Spinner
-            visible={cryptoDetails.isFetching}
-            textContent="Loading..."
-            textStyle={{ color: '#253145' }}
-            animation="fade"
-          />
-        </View>
-      );
-    }
-
-    return (
+    return isFetching ? (
+      <Loader isLoading={isFetching} />
+    ) : (
       <ScrollView contentContainerStyle={contentContainer}>
         <CoinDetails
           coinName={name}
@@ -87,11 +78,11 @@ const styles = {
   },
 };
 
-const mapStateToProps = state => ({
-  cryptoDetails: state.cryptoDetails,
+const mapStateToProps = (state) => ({
+  coinDetails: state.coinDetails,
 });
 
 export default connect(
   mapStateToProps,
-  { fetchCryptoDetails },
+  { fetchCoinDetails },
 )(CoinDetailsContainer);

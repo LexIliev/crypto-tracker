@@ -1,4 +1,4 @@
-const images = {
+export const coinIcons = {
   BTC:
     'https://res.cloudinary.com/da7jhtpgh/image/upload/v1508609483/bitcoin_eqld4v.png',
   ETH:
@@ -37,4 +37,5 @@ const images = {
     'https://res.cloudinary.com/da7jhtpgh/image/upload/v1516326878/eos_2x_dvr7p0.png',
 };
 
-export default images;
+export const DEFAULT_ICON =
+  'https://img.icons8.com/material-sharp/24/000000/link.png';

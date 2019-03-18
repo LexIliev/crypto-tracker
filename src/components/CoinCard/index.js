@@ -3,19 +3,16 @@ import React from 'react';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
 /* eslint-enable object-curly-newline */
 
-import images from '../../utils/CoinIcons';
+import { coinIcons, DEFAULT_ICON } from '../../utils/CoinIcons';
 
 import styles from './styles';
 
 import { formatAmount } from '../../utils';
 
-// Default Cryptocurrency Image
-const DEFAULT_IMAGE = 'https://img.icons8.com/material-sharp/24/000000/link.png';
-
 const CoinCard = (props) => {
   const {
     container,
-    image,
+    icon,
     currencySymbol,
     upperRow,
     symbol,
@@ -44,9 +41,9 @@ const CoinCard = (props) => {
     >
       <View style={upperRow}>
         <Image
-          style={image}
+          style={icon}
           source={{
-            uri: images[coinSymbol] || DEFAULT_IMAGE,
+            uri: coinIcons[coinSymbol] || DEFAULT_ICON,
           }}
         />
         <Text style={symbol}>{coinSymbol}</Text>
