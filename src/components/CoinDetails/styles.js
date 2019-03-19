@@ -17,7 +17,7 @@ export default StyleSheet.create({
     borderBottomWidth: 1,
   },
 
-  image: {
+  icon: {
     width: 35,
     height: 35,
   },
